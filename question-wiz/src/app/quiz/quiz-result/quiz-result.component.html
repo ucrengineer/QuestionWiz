@@ -1,0 +1,54 @@
+<div class="quiz-result-dashboard">
+
+
+    <div class="knob text-center m-5">
+        <h5>Total Score</h5>
+        <p-knob [(ngModel)]="value" [min]="0" [max]=max></p-knob>
+    </div>
+    <div class="text-center">
+        <h5>Missed Questions</h5>
+    </div>
+    <div class="row">
+
+        <div *ngFor="let question of questions;index as i;" class="col-sm-3 p-3 text-center">
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p>{{question.description}}</p>
+
+                    </div>
+                    <div class="flip-card-back">
+                        <p>Correct Answer</p>
+                        <p>{{answers[i].description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="questions.length === 0">
+        <div class="text-center">
+            <div class="card border-success">
+
+                <div class="card-body">
+                    <!-- <h5 class="card-title">{{question.category}}</h5> -->
+                    <p>You got all of the questions CORRECT!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="text-center">
+        <a routerLink="/board-table" [state]="{results : value}" routerLinkActive="active" class="card-img-wrapper ">
+
+            <p-button label="Save To Leader Board" icon="pi pi-globe"></p-button>
+
+        </a>
+
+
+    </div>
+
+
+
+
+</div>

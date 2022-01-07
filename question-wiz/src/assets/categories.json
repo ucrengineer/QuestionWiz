@@ -1,0 +1,38 @@
+[{
+        "id": "object_oriented_programming",
+        "name": "Object Oriented Programming",
+        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
+        "desc": "Object Oriented Programming Theory"
+    },
+    {
+        "id": "life_insurance",
+        "name": "Life Insurance",
+        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
+        "desc": "Life Insurance State Certification Concepts"
+    },
+    {
+        "id": "art_history",
+        "name": "Art History",
+        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
+        "desc": "European, African & American Art"
+    },
+    {
+        "id": "net_core",
+        "name": ".NET Core",
+        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
+        "desc": "Dependency Injection Containers, C# Syntax, Unit Testing & Abstraction, REST Design"
+    },
+    {
+        "id": "angular",
+        "name": "Angular",
+        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
+        "desc": "Design Pattern, Components, State Management"
+    },
+    {
+        "id": "git",
+        "name": "Git",
+        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
+        "desc": "Version control, Command lines, Dev ops"
+    }
+
+]

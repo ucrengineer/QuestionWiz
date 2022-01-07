@@ -1,0 +1,112 @@
+<div *ngIf="user.points != undefined" id="overlay">
+    <div id="text">
+        <div>
+            <div class="card text-center m-5">
+                <div class="card-header" style="background-color: rgb(60, 60, 73);">
+                    <p>User Registration</p>
+                </div>
+                <div class="card-body">
+
+                    <input type="text" pInputText [(ngModel)]="userName" placeholder="Whats your name?" />
+
+                    <p-dropdown autoWidth="false" [style]="{'width':'100%'}" [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country">
+
+                    </p-dropdown>
+                    <div class="pt-3">
+
+                        <button pButton pRipple type="button" (click)="off()" label="Submit" class="p-button-raised p-button-success"></button>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<div style="padding:20px">
+
+    <p-table #dt [value]="users" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [filterDelay]="0" [globalFilterFields]="['name','country','points','quizCount']">
+        <ng-template pTemplate="caption">
+            <div class="table-header">
+                List of QuizWiz's
+                <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Global Search" />
+            </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+
+                <th pSortableColumn="name">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Name
+                        <p-sortIcon field="name"></p-sortIcon>
+                        <p-columnFilter type="text" field="name" display="menu" class="p-ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="country">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Country
+                        <p-sortIcon field="country"></p-sortIcon>
+                        <p-columnFilter type="text" field="country" display="menu" class="p-ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+
+
+                <th pSortableColumn="points">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Points
+                        <p-sortIcon field="points"></p-sortIcon>
+                        <p-columnFilter type="numeric" field="points" display="menu" currency="USD" class="p-ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+                <th pSortableColumn="points">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        QuizCount
+                        <p-sortIcon field="quizCount"></p-sortIcon>
+                        <p-columnFilter type="numeric" field="quizCount" display="menu" currency="USD" class="p-ml-auto"></p-columnFilter>
+                    </div>
+                </th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr class="p-selectable-row">
+
+                <td>
+                    <span class="p-column-title">Name</span> {{user.name}}
+
+                </td>
+                <td>
+                    <span class="p-column-title">Country</span> {{user.country}}
+                </td>
+
+
+                <td>
+                    <span class="p-column-title">Points</span> {{user.points}}
+                </td>
+
+                <td>
+                    <span class="p-column-title">QuizCount</span> {{user.quizCount}}
+                </td>
+
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="8">No users found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+
+
+
+</div>

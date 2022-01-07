@@ -1,0 +1,16 @@
+#quiz {
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.answer-container {
+    margin-left: 25%;
+    margin-right: 25%;
+    max-width: 60%;
+}
+
+#answerButtons {
+    margin-top: 1%;
+    width: 100%;
+}

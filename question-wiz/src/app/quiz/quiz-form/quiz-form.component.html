@@ -1,0 +1,61 @@
+<div id="quiz" *ngIf="!loading; else elseBlock">
+    <!-- <h2>
+        <p-badge value={{totalScore}} size="xlarge" severity="success" styleClass="p-mr-2">Time Countdown</p-badge>
+
+    </h2> -->
+
+    <div>
+        <div class="card  bg-light ">
+
+            <h3 class="card-title">
+                {{questions[index].description}}
+
+            </h3>
+            <div *ngIf="filtered_answers" class="card-body">
+                <div *ngFor="let answer of filtered_answers" class="card-text">
+                    <button pButton pRipple type="button" id="answerButtons" label={{answer.description}} class="p-button-raised p-button-primary" name={{answer.id}} (click)="setAnswer(answer.id)"></button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="filtered_answers" class="answer-container">
+
+
+        <div class="row">
+            <div class="text-left col">
+                <!-- <button pButton pRipple type="button" icon="pi pi-arrow-left" class="p-button-rounded p-button-warning" (click)="previous()"></button> -->
+
+            </div>
+
+            <div *ngIf="finished ; else nextQuestion" class="text-right col">
+                <a routerLink="/quiz-result" routerLinkActive="active" [state]="{results: sum(),WrongQuestions:wrongQuestions, RightAnswers : rightAnswers, maxScore : questions.length}" class="card-img-wrapper ">
+                    <button pButton pRipple type="button" label="Submit" class="p-button-raised p-button-success" (click)="showResults()"></button>
+                </a>
+
+            </div>
+            <ng-template #nextQuestion>
+                <div class="text-right col">
+                    <button pButton pRipple type="button" icon="pi pi-arrow-right" class="p-button-rounded" (click)="next()"></button>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+<ng-template #elseBlock>
+
+
+    <div class="text-center" style="margin-top:20%">
+        <p-progressSpinner></p-progressSpinner>
+
+    </div>
+
+</ng-template>
