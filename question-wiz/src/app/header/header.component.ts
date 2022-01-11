@@ -12,8 +12,5 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setActive(){
-    this.active = !this.active;
-  }
 
 }

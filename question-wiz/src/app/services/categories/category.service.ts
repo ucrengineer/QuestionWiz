@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { throwError, Observable } from 'rxjs';
 import { category } from 'src/app/models/category.model';
 import { retry, catchError } from 'rxjs/operators';
-import { handleError } from '../../error-handling/errorHandler.component';
+import { handleError } from '../../helpers/errorHandler.component';
 @Injectable({
   providedIn: 'root'
 })

@@ -1,32 +1,3 @@
-<div *ngIf="user.points != undefined" id="overlay">
-    <div id="text">
-        <div>
-            <div class="card text-center m-5">
-                <div class="card-header" style="background-color: rgb(60, 60, 73);">
-                    <p>User Registration</p>
-                </div>
-                <div class="card-body">
-
-                    <input type="text" pInputText [(ngModel)]="userName" placeholder="Whats your name?" />
-
-                    <p-dropdown autoWidth="false" [style]="{'width':'100%'}" [options]="countries" [(ngModel)]="selectedCountry" optionLabel="name" [filter]="true" filterBy="name" [showClear]="true" placeholder="Select a Country">
-
-                    </p-dropdown>
-                    <div class="pt-3">
-
-                        <button pButton pRipple type="button" (click)="off()" label="Submit" class="p-button-raised p-button-success"></button>
-
-                    </div>
-                </div>
-
-
-            </div>
-
-
-
-        </div>
-    </div>
-</div>
 <div style="padding:20px">
 
     <p-table #dt [value]="users" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -109,4 +80,7 @@
 
 
 
+</div>
+<div *ngIf="user == null">
+    <app-login></app-login>
 </div>

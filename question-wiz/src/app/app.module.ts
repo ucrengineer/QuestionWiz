@@ -14,6 +14,11 @@ import {ScrollingModule} from '@angular/cdk/scrolling'
 import { QuizFormComponent } from './quiz/quiz-form/quiz-form.component';
 import { QuizResultComponent } from './quiz/quiz-result/quiz-result.component';
 
+
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input'
+import {MatSelectModule} from '@angular/material/select';
+
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {ListboxModule} from 'primeng/listbox';
 import {PaginatorModule} from 'primeng/paginator';
@@ -29,12 +34,16 @@ import {TableModule} from 'primeng/table';
 
 
 import { BoardTableComponent } from './leader-board/board-table/board-table.component';
+import { RegistrationComponent } from './user/registration/registration.component';
+import { LoginComponent } from './user/login/login.component';
 
 const appRoutes: Routes= [
   {path: 'homepage', component:HomePageComponent},
   {path:'quiz-form/:id', component:QuizFormComponent},
   {path:'quiz-result', component:QuizResultComponent},
   {path:'board-table', component:BoardTableComponent},
+  {path:'register',component: RegistrationComponent},
+  {path:'login', component:LoginComponent},
   {path: '**', component:HomePageComponent}
 ]
 
@@ -47,7 +56,9 @@ const appRoutes: Routes= [
     FooterComponent,
     QuizFormComponent,
     QuizResultComponent,
-    BoardTableComponent
+    BoardTableComponent,
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +79,9 @@ const appRoutes: Routes= [
     DropdownModule,
     InputTextModule,
     TableModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSelectModule,
     RouterModule.forRoot(
       appRoutes,
       {enableTracing : true}

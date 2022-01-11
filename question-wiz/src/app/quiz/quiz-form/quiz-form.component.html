@@ -13,7 +13,7 @@
             </h3>
             <div *ngIf="filtered_answers" class="card-body">
                 <div *ngFor="let answer of filtered_answers" class="card-text">
-                    <button pButton pRipple type="button" id="answerButtons" label={{answer.description}} class="p-button-raised p-button-primary" name={{answer.id}} (click)="setAnswer(answer.id)"></button>
+                    <button pButton pRipple type="button" id="answerButtons" label={{answer.description}} (click)="changeColor(answer.id)" class="p-button-raised p-button-primary" [ngClass]="{ 'p-button-success' :answer.selected }"></button>
 
                 </div>
 

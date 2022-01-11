@@ -24,7 +24,6 @@ export class QuizFormComponent implements OnInit {
   selectedAnswer : any ;
   index : number = 0;
   points : {} = {};
-  totalScore : string = '';
   loading : boolean = true;
   finished : boolean = false;
 
@@ -45,42 +44,31 @@ export class QuizFormComponent implements OnInit {
   }
 
 
-  setAnswer(answerId){
-    this.selectedAnswer = this.answers.find(x => x.id === answerId);
+  setAnswer(){
+    let answerId = this.filtered_answers.find(x => x.selected == true).id;
     switch(answerId){
 
       case this.questions[this.index].answerId:{
         this.addPoint()
-        this.wrongQuestions = this.wrongQuestions.filter(x => x.id === this.questions[this.index])
-
         break;
       }
       default: {
         this.subtractPoint()
-        this.wrongQuestions[this.index] = this.questions[this.index]
-        this.rightAnswers[this.index] = this.answers.find(x => x.id === this.questions[this.index].answerId)
+        this.wrongQuestions.push(this.questions[this.index])
+        this.rightAnswers.push(this.answers.find(x => x.id === this.questions[this.index].answerId))
+
         break;
       }
 
     }
-    this.changeColor(answerId)
-    this.wrongQuestions = this.wrongQuestions.filter(x => x);
-    this.rightAnswers = this.rightAnswers.filter(x => x )
-   // this.totalScore = this.sum()
 
 
   }
 
   changeColor(answerId){
-    if(this.filtered_answers.some(x => x.selected == true))
-    {
-      // reset all buttons
-      let id = this.filtered_answers.find(x => x.selected == true).id
-      document.getElementsByName(id)[0].className = "p-button p-button-raised p-button-primary "
-      this.answers.find(x => x.selected == true).selected = false;
-    }
-    document.getElementsByName(answerId)[0].className = "p-button p-button-raised p-button-success "
-    this.filtered_answers.find(x => x.id == answerId).selected = true;
+    var choosenAnswer = this.filtered_answers.find(x => x.id == answerId);
+    this.filtered_answers.forEach(x => x.selected = false);
+    choosenAnswer.selected = true;
 
   }
 
@@ -96,62 +84,26 @@ export class QuizFormComponent implements OnInit {
 
   addPoint()
   {
-    switch(this.points[this.questions[this.index].answerId])
-    {
-      case 0:
-        {
-          this.points[this.questions[this.index].answerId] = 1;
-          break;
-        }
-      case 1:
-      {
-        break;
-      }
-      default:
-      {
-        this.points[this.questions[this.index].answerId] = 1;
-
-      }
-
-    }
-
+    this.points[this.questions[this.index].answerId] = 1
   }
 
   subtractPoint()
   {
-    switch(this.points[this.questions[this.index].answerId])
-    {
-      case 1:
-        {
-          this.points[this.questions[this.index].answerId] = 0;
-          break;
-        }
-      case 0:
-      {
-        break;
-      }
-      default:
-      {
-        this.points[this.questions[this.index].answerId] = 0;
-
-      }
-
-    }
-
+    this.points[this.questions[this.index].answerId] = 0;
   }
 
 
   next(){
-    if(this.index+1 != Object.keys(this.points).length){
+    if(!this.filtered_answers.some(x => x.selected == true)){
       alert('please select a answer')
     }
     else{
+      this.setAnswer()
       switch(this.index){
         case this.questions.length -1:
           {
             this.filterAnswers();
             this.finished= true;
-            console.log(this.wrongQuestions)
             // show submit button to load quiz result page
 
             break;
@@ -170,44 +122,14 @@ export class QuizFormComponent implements OnInit {
       }
 
     }
-
-
-
-
   }
-  previous(){
-    switch(this.index){
-      case 0:
-        {
-          this.index = this.questions.length - 1;
 
-          break;
-        }
-      default:
-        {
-          this.index--;
-          break;
-        }
-    }
-    this.filterAnswers()
-  }
 
 
   filterAnswers(){
     this.filtered_answers =this.answers.filter(x => x.questionId == this.questions[this.index].id)
   }
 
-  showResults(){
-  //   Object.keys(this.points).forEach((x)=> {
 
-  //     if(this.points[x.toString()] === 0)
-  //     {
-  //       var test = this.questions.find(x => x.answerId = +x)
-  //       console.log(test)
-  //     }
-  //   })
-
-
-  }
 
 }

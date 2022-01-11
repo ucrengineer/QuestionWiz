@@ -1,0 +1,53 @@
+<div id="form-overlay" class="modal" [ngStyle]="{ 'display' :show}">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="modal-content animate">
+
+        <div class="imgcontainer">
+            <span (click)="show ='none'" class="close" title="Close Modal">&times;</span>
+            <i class="pi pi-user" style="font-size: 5rem"></i>
+
+        </div>
+        <p *ngIf="loginError">{{loginError}}</p>
+
+
+        <div class="container">
+
+            <mat-form-field>
+                <label for="uname"><b>Email</b></label>
+                <input matInput type="text" formControlName="email" name="uname" required>
+                <div>
+                    <mat-error class="text-center alert alert-danger " *ngIf="loginForm.controls.email.touched &&!loginForm.controls.email.valid">Please enter valid email</mat-error>
+
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+                <label for="psw"><b>Password</b></label>
+                <input matInput type="password" formControlName="password" name="psw" required>
+                <div>
+                    <mat-error class="text-center  alert alert-danger" *ngIf="loginForm.controls.password.touched &&!loginForm.controls.password.valid">Please enter valid password</mat-error>
+
+                </div>
+            </mat-form-field>
+
+            <button type="submit">Login</button>
+            <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <div class="row">
+                <div class="col text-left">
+                    <a routerLink="/register">create new user</a>
+                </div>
+                <div class="col text-right">
+                    <a href="
+                  ">forgot password?</a>
+
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>

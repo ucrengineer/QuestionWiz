@@ -11,6 +11,7 @@ export class QuizResultComponent implements OnInit {
   questions : any[] = [];
   answers : any[] = [];
   max : number= 20;
+  user : any = null;
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit(): void {

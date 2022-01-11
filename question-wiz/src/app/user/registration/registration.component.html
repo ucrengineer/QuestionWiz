@@ -1,0 +1,53 @@
+<div id="form-overlay" class="modal" [ngStyle]="{ 'display' :show}">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="modal-content animate">
+
+        <div class="imgcontainer">
+            <span (click)="show ='none'" class="close" title="Close Modal">&times;</span>
+            <i class="pi pi-user-plus" style="font-size: 5rem"></i>
+
+        </div>
+        <p *ngIf="loginError">{{loginError}}</p>
+
+
+        <div class="container">
+
+            <mat-form-field>
+                <label for="email"><b>Email</b></label>
+                <input matInput type="text" formControlName="email" name="email" required>
+                <div>
+                    <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.email.touched && !loginForm.controls.email.valid">Please enter valid email</mat-error>
+
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+                <label for="uname"><b>UserName</b></label>
+                <input matInput type="text" formControlName="userName" name="uname" required>
+                <div>
+                    <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.userName.touched && !loginForm.controls.userName.valid">Please enter user name [10 char max] </mat-error>
+
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+                <label for="psw"><b>Password</b></label>
+                <input matInput type="password" formControlName="password" name="psw" required>
+                <div>
+                    <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.password.touched && !loginForm.controls.password.valid">Please enter valid password</mat-error>
+
+                </div>
+            </mat-form-field>
+            <mat-form-field>
+                <label for="psw2"><b>Confirm Password</b></label>
+                <input matInput type="password" formControlName="confirmedPass" name="psw2" required>
+                <div>
+                    <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.confirmedPass.touched && !loginForm.controls.confirmedPass.valid">Password does not match</mat-error>
+                    <!-- <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.confirmedPass.hasError('matching')">Password and Confirm Password must be match.</mat-error> -->
+                </div>
+            </mat-form-field>
+
+
+            <button type="submit">Register</button>
+
+        </div>
+    </form>
+</div>

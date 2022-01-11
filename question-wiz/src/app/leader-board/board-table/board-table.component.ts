@@ -22,7 +22,7 @@ export class BoardTableComponent implements OnInit {
   isOpen = true;
   userName: string= null;
   users : any[] = [];
-  user: any = {};
+  user: any = null;
   loading : boolean = true;
 
 
@@ -45,7 +45,6 @@ export class BoardTableComponent implements OnInit {
 
     this.user.points = history.state['results']
 
-    console.log(this.user.points)
 
   }
 
@@ -64,30 +63,6 @@ export class BoardTableComponent implements OnInit {
     this.filteredCountries = filtered;
   }
 
-  on() {
-    document.getElementById("overlay").style.display = "block";
-}
 
-  off() {
-    if(this.userName == undefined){
-      alert('Please fill out your username')
-      return;
-    }
-    if(this.selectedCountry == undefined){
-      alert('Please choose your country')
-      return;
-    }
-    document.getElementById("overlay").style.display = "none";
-
-    this.user.id = Math.max.apply(Math, this.users.map(function(o) { return o.y; })) + 1
-    this.user.name = this.userName;
-    this.user.country = this.selectedCountry.name
-    this.user.quizCount = 100;
-    this.user.quizCount = 0
-    this.userService.put(this.user).subscribe();
-    this.users.push(this.user)
-
-
-}
 
 }
