@@ -7,7 +7,7 @@
             <i class="pi pi-user" style="font-size: 5rem"></i>
 
         </div>
-        <p *ngIf="loginError">{{loginError}}</p>
+        <div *ngIf="invalidLogin" class="alert alert-danger text-center">Invalid username or password</div>
 
 
         <div class="container">

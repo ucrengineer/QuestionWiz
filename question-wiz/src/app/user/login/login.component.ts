@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/users/user.service';
 })
 export class LoginComponent implements OnInit {
 
+  invalidLogin: boolean;
   show : string = 'block'
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required,Validators.email]),
@@ -40,5 +41,24 @@ export class LoginComponent implements OnInit {
     //   error => this.loginError = error
     //   )
     }
+    const credentials = {
+      'username': this.loginForm.value.email,
+      'password': this.loginForm.value.password
+    }
+    this.userService.login(credentials)
+    .subscribe(res => {
+      const token = (<any>res).token;
+      localStorage.setItem("jwt",token);
+      this.invalidLogin = false;
+      this.show = 'none'
+     // this.router.navigate(['/homepage']);
+    }, err => {
+      this.invalidLogin = true;
+    })
+
+  }
+
+  logOut(){
+    localStorage.removeItem("jwt");
   }
 }

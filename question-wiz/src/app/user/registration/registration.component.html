@@ -36,14 +36,14 @@
 
                 </div>
             </mat-form-field>
-            <mat-form-field>
+            <!-- <mat-form-field>
                 <label for="psw2"><b>Confirm Password</b></label>
                 <input matInput type="password" formControlName="confirmedPass" name="psw2" required>
                 <div>
                     <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.confirmedPass.touched && !loginForm.controls.confirmedPass.valid">Password does not match</mat-error>
-                    <!-- <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.confirmedPass.hasError('matching')">Password and Confirm Password must be match.</mat-error> -->
-                </div>
-            </mat-form-field>
+                     <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.confirmedPass.hasError('matching')">Password and Confirm Password must be match.</mat-error>
+             </div>
+            </mat-form-field>  -->
 
 
             <button type="submit">Register</button>

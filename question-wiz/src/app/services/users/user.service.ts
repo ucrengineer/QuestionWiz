@@ -25,6 +25,13 @@ export class UserService {
     )
   }
 
+  login(user:any):Observable<any>{
+    return this.http.post<any>(environment.api + 'auth/login',user).pipe(
+      retry(1),
+      catchError(handleError)
+    )
+  }
+
 
 
 }
