@@ -14,6 +14,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling'
 import { QuizFormComponent } from './quiz/quiz-form/quiz-form.component';
 import { QuizResultComponent } from './quiz/quiz-result/quiz-result.component';
 
+import{JwtModule} from '@auth0/angular-jwt'
 
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input'
@@ -36,15 +37,26 @@ import {TableModule} from 'primeng/table';
 import { BoardTableComponent } from './leader-board/board-table/board-table.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { LoginComponent } from './user/login/login.component';
+import { AuthGuard } from './auth/auth-guard/AuthGuard';
+
+export function tokenGetter(){
+  return localStorage.getItem("jwt")
+}
+
 
 const appRoutes: Routes= [
-  {path: 'homepage', component:HomePageComponent},
-  {path:'quiz-form/:id', component:QuizFormComponent},
-  {path:'quiz-result', component:QuizResultComponent},
-  {path:'board-table', component:BoardTableComponent},
+  {path: 'homepage', component:HomePageComponent,
+   canActivate:[AuthGuard]},
+  {path:'quiz-form/:id', component:QuizFormComponent,
+  canActivate:[AuthGuard]},
+  {path:'quiz-result', component:QuizResultComponent,
+  canActivate:[AuthGuard]},
+  {path:'board-table', component:BoardTableComponent,
+  canActivate:[AuthGuard]},
   {path:'register',component: RegistrationComponent},
   {path:'login', component:LoginComponent},
-  {path: '**', component:HomePageComponent}
+  {path: '**', component:HomePageComponent,
+  canActivate:[AuthGuard]}
 ]
 
 
@@ -82,6 +94,13 @@ const appRoutes: Routes= [
     ReactiveFormsModule,
     MatInputModule,
     MatSelectModule,
+    JwtModule.forRoot({
+      config:{
+        tokenGetter: tokenGetter,
+        allowedDomains:["localhost:5001"],
+        disallowedRoutes:[]
+      }
+    }),
     RouterModule.forRoot(
       appRoutes,
       {enableTracing : true}

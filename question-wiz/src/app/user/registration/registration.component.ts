@@ -3,6 +3,9 @@ import { UserService } from 'src/app/services/users/user.service';
 import {FormGroup, FormControl, Validators, AbstractControl, ValidatorFn, ValidationErrors} from '@angular/forms';
 import { confirmValidator } from 'src/app/helpers/form-validators';
 import { CountriesService } from 'src/app/services/countries/countries.service';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-registration',
@@ -23,7 +26,7 @@ export class RegistrationComponent implements OnInit {
     userName: new FormControl('',Validators.required),
     password: new FormControl('', [Validators.required,]),
     // confirmedPass: new FormControl('',[Validators.required,Validators.pattern('')]),
-    country : new FormControl('',Validators.required)
+   // country : new FormControl('',Validators.required)
 
 
 
@@ -33,7 +36,7 @@ export class RegistrationComponent implements OnInit {
 
 
   public loginError:String;
-  constructor(private countryService: CountriesService,private userService:UserService) { }
+  constructor(private countryService: CountriesService,private userService:UserService, private router : Router) { }
 
   ngOnInit() {
     this.countryService.get().subscribe(x => {
@@ -55,9 +58,13 @@ export class RegistrationComponent implements OnInit {
     this.filteredCountries = filtered;
   }
   onSubmit(){
-
     if(this.loginForm.valid){
-      this.userService.put(this.loginForm.value).subscribe()
+     // var user : user = {email : this.loginForm.get('email').value,userName: this.loginForm.get('userName').value, password: this.loginForm.get('password').value}
+      this.userService.put(this.loginForm.value).subscribe(
+        (data) => {},
+        (error:any) => {this.loginError = error.client_side},
+      () => this.router.navigate(['/login']));
+
     //   this.userService.login(this.loginForm.value)
     //   .subscribe((data) => {
     // console.log(data);

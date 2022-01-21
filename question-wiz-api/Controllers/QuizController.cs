@@ -14,23 +14,19 @@ namespace question_wiz_api.Controllers
     public class QuizController : ControllerBase
     {
         [HttpGet]
-        [Authorize]
+    //    [Authorize]
         public Quiz Get()
         {
-            IEnumerable<string> questions = null;
-            questions.Append("test");
-
-            IEnumerable<string> answers = null;
-            answers.Append("Me");
+  
 
 
 
 
             return new Quiz
             {
-                Answers = answers,
+                Answers =null,
 
-                Questions = questions
+                Questions = null
 
             };
 

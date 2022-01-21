@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EMPTY, timer } from 'rxjs';
 import { AnswerService } from 'src/app/services/answers/answer.service';
 import { QuestionService } from 'src/app/services/questions/question.service';
+import { QuizService } from 'src/app/services/quizzes/quiz-service.service';
 
 @Component({
   selector: 'app-quiz-form',
@@ -13,9 +14,11 @@ import { QuestionService } from 'src/app/services/questions/question.service';
 export class QuizFormComponent implements OnInit {
 
   constructor(private questionService:QuestionService,
+    private quizService : QuizService,
     private answerService:AnswerService,
     private route:ActivatedRoute,
     private router: Router) { }
+  quiz:any;
   questions : any[] = [] ;
   wrongQuestions : any [] = [];
   rightAnswers : any[] = [];
@@ -28,6 +31,8 @@ export class QuizFormComponent implements OnInit {
   finished : boolean = false;
 
   ngOnInit(): void {
+
+   // this.quizService.get().subscribe(x =>this.quiz );
     this.questionService.get().subscribe(x => {
 
       this.questions = x.filter(x => x.category == this.route.snapshot.params['id'])

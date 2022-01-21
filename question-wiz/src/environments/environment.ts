@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  mocApi: 'http://localhost:3000/',
   api : 'http://localhost:50230/api/'
 
 };

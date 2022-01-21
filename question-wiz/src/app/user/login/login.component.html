@@ -3,7 +3,6 @@
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="modal-content animate">
 
         <div class="imgcontainer">
-            <span (click)="show ='none'" class="close" title="Close Modal">&times;</span>
             <i class="pi pi-user" style="font-size: 5rem"></i>
 
         </div>
@@ -30,9 +29,7 @@
             </mat-form-field>
 
             <button type="submit">Login</button>
-            <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
+
         </div>
 
         <div class="container" style="background-color:#f1f1f1">

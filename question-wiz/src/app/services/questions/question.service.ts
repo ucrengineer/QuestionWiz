@@ -12,7 +12,7 @@ export class QuestionService {
   constructor(private http:HttpClient) { }
 
   get():Observable<any[]>{
-    return this.http.get<any[]>(environment.api + 'question').pipe(
+    return this.http.get<any[]>(environment.mocApi + 'question').pipe(
       retry(1),
       catchError(handleError)
     )

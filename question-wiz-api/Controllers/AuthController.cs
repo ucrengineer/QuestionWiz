@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using question_wiz_api.DAL.Interfaces;
 using question_wiz_api.DAL.Models;
+using question_wiz_api.Security.Interface;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -16,15 +18,32 @@ namespace question_wiz_api.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private readonly ISecurityHelper _security;
+        private readonly IUserRepo _userRepo;
+
+        public AuthController(ISecurityHelper securityHelper, IUserRepo userRepo)
+        {
+            _security = securityHelper;
+            _userRepo = userRepo;
+        }
+
         [HttpPost, Route("login")]
-        public IActionResult Login([FromBody]LoginModel user)
+        public IActionResult Login([FromBody]User user)
         {
             if (user == null)
             {
                 return BadRequest("Invalid client request");
             }
-            // call userRepo to return user information
-            if(user.UserName == "brandon@gmail.com" && user.Password == "password")
+            // get user information repo
+            var userDb = _userRepo.GetUser(user);
+            user.Hash_Password =_security.ComputeHash(Encoding.UTF8.GetBytes(user.Password), Encoding.UTF8.GetBytes(userDb.Salt));
+
+            if (userDb == null)
+            {
+                return Unauthorized("User does not exist");
+            }
+            // take password + salt => hash vs db_hash
+            if (user.Email == userDb.Email && user.Hash_Password == userDb.Hash_Password)
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("supereSecurityKey@345"));
                 var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -43,7 +62,11 @@ namespace question_wiz_api.Controllers
                 return Ok(new { Token = tokenString });
             }
 
-            return Unauthorized();
+            return Unauthorized("User does not Exist");
         }
+
+  
+
+
     }
 }

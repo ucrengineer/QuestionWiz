@@ -1,172 +1,169 @@
 {
-  "question": [
-    {
-      "id": 1,
-      "category": "object_oriented_programming",
-      "answerId": 1,
-      "description": "What is a class?"
-    },
-    {
-      "id": 2,
-      "category": "object_oriented_programming",
-      "answerId": 5,
-      "description": "Which of these is NOT a object oriented concept?"
-    },
-    {
-      "id": 3,
-      "category": "object_oriented_programming",
-      "answerId": 9,
-      "description": "An object is defined by what two(2) components?"
-    },
-    {
-      "id": 4,
-      "category": "object_oriented_programming",
-      "answerId": 13,
-      "description": "Inheritance represents what type of relationship?"
-    },
-    {
-      "id": 5,
-      "category": "object_oriented_programming",
-      "answerId": 19,
-      "description": "What is encapsulation?"
-    }
-  ],
-  "answer": [
-    {
-      "id": 1,
-      "questionId": 1,
-      "description": "Templates (cookie cutters) used to create a object"
-    },
-    {
-      "id": 2,
-      "questionId": 1,
-      "description": "A object with attributes and behaviors"
-    },
-    {
-      "id": 3,
-      "questionId": 1,
-      "description": "A data type of int"
-    },
-    {
-      "id": 4,
-      "questionId": 1,
-      "description": "A data type of string"
-    },
-    {
-      "id": 5,
-      "questionId": 2,
-      "description": "Iteration"
-    },
-    {
-      "id": 6,
-      "questionId": 2,
-      "description": "Polymorphism"
-    },
-    {
-      "id": 7,
-      "questionId": 2,
-      "description": "Inheritance"
-    },
-    {
-      "id": 8,
-      "questionId": 2,
-      "description": "Encapsulation"
-    },
-    {
-      "id": 9,
-      "questionId": 3,
-      "description": "Attributes & Behaviors"
-    },
-    {
-      "id": 10,
-      "questionId": 3,
-      "description": "Class & Interface"
-    },
-    {
-      "id": 11,
-      "questionId": 3,
-      "description": "Zero & One"
-    },
-    {
-      "id": 12,
-      "questionId": 3,
-      "description": "Function & Method"
-    },
-    {
-      "id": 13,
-      "questionId": 4,
-      "description": "is - a"
-    },
-    {
-      "id": 14,
-      "questionId": 4,
-      "description": "has - a"
-    },
-    {
-      "id": 15,
-      "questionId": 4,
-      "description": "what - is"
-    },
-    {
-      "id": 16,
-      "questionId": 4,
-      "description": "how - about"
-    },
-    {
-      "id": 17,
-      "questionId": 5,
-      "description": "A method of hiding data"
-    },
-    {
-      "id": 18,
-      "questionId": 5,
-      "description": "Overriding a behavior so that the object can produce unique results"
-    },
-    {
-      "id": 19,
-      "questionId": 5,
-      "description": "The process of packaging your program, dividing each of its classes into two distinct parts: the interface and the implementation"
-    },
-    {
-      "id": 20,
-      "questionId": 5,
-      "description": "Involves inheriting attributes and behaviors from other classes, where there is a true parent/child relationship"
-    }
-  ],
-  "user": [
-    {
-      "id": 1,
-      "email": "ucrengineerpy@gmail.com",
-      "password": "testing123",
-      "name": "brandon",
-      "country": "united states",
-      "points": 1000,
-      "quizCount": 2000
-    },
-    {
-      "id": 2,
-      "email": "ucrengineerpy@gmail.com",
-      "password": "testing123",
-      "name": "darnell",
-      "country": "united states",
-      "points": 10000,
-      "quizCount": 2000
-    },
-    {
-      "id": 3,
-      "email": "ucrengineerpy@gmail.com",
-      "password": "testing123",
-      "name": "tj",
-      "country": "united states",
-      "points": 2000,
-      "quizCount": 2000
-    },
-    {
-      "email": "molly.sturgis@navy.mil",
-      "userName": "molly",
-      "password": "test",
-      "confirmedPass": "test",
-      "id": 4
-    }
-  ]
+    "question": [{
+            "id": 1,
+            "category": "object_oriented_programming",
+            "answerId": 1,
+            "description": "What is a class?"
+        },
+        {
+            "id": 2,
+            "category": "object_oriented_programming",
+            "answerId": 5,
+            "description": "Which of these is NOT a object oriented concept?"
+        },
+        {
+            "id": 3,
+            "category": "object_oriented_programming",
+            "answerId": 9,
+            "description": "An object is defined by what two(2) components?"
+        },
+        {
+            "id": 4,
+            "category": "object_oriented_programming",
+            "answerId": 13,
+            "description": "Inheritance represents what type of relationship?"
+        },
+        {
+            "id": 5,
+            "category": "object_oriented_programming",
+            "answerId": 19,
+            "description": "What is encapsulation?"
+        }
+    ],
+    "answer": [{
+            "id": 1,
+            "questionId": 1,
+            "description": "Templates (cookie cutters) used to create a object"
+        },
+        {
+            "id": 2,
+            "questionId": 1,
+            "description": "A object with attributes and behaviors"
+        },
+        {
+            "id": 3,
+            "questionId": 1,
+            "description": "A data type of int"
+        },
+        {
+            "id": 4,
+            "questionId": 1,
+            "description": "A data type of string"
+        },
+        {
+            "id": 5,
+            "questionId": 2,
+            "description": "Iteration"
+        },
+        {
+            "id": 6,
+            "questionId": 2,
+            "description": "Polymorphism"
+        },
+        {
+            "id": 7,
+            "questionId": 2,
+            "description": "Inheritance"
+        },
+        {
+            "id": 8,
+            "questionId": 2,
+            "description": "Encapsulation"
+        },
+        {
+            "id": 9,
+            "questionId": 3,
+            "description": "Attributes & Behaviors"
+        },
+        {
+            "id": 10,
+            "questionId": 3,
+            "description": "Class & Interface"
+        },
+        {
+            "id": 11,
+            "questionId": 3,
+            "description": "Zero & One"
+        },
+        {
+            "id": 12,
+            "questionId": 3,
+            "description": "Function & Method"
+        },
+        {
+            "id": 13,
+            "questionId": 4,
+            "description": "is - a"
+        },
+        {
+            "id": 14,
+            "questionId": 4,
+            "description": "has - a"
+        },
+        {
+            "id": 15,
+            "questionId": 4,
+            "description": "what - is"
+        },
+        {
+            "id": 16,
+            "questionId": 4,
+            "description": "how - about"
+        },
+        {
+            "id": 17,
+            "questionId": 5,
+            "description": "A method of hiding data"
+        },
+        {
+            "id": 18,
+            "questionId": 5,
+            "description": "Overriding a behavior so that the object can produce unique results"
+        },
+        {
+            "id": 19,
+            "questionId": 5,
+            "description": "The process of packaging your program, dividing each of its classes into two distinct parts: the interface and the implementation"
+        },
+        {
+            "id": 20,
+            "questionId": 5,
+            "description": "Involves inheriting attributes and behaviors from other classes, where there is a true parent/child relationship"
+        }
+    ],
+    "user": [{
+            "id": 1,
+            "email": "ucrengineerpy@gmail.com",
+            "password": "testing123",
+            "name": "brandon",
+            "country": "united states",
+            "points": 1000,
+            "quizCount": 2000
+        },
+        {
+            "id": 2,
+            "email": "ucrengineerpy@gmail.com",
+            "password": "testing123",
+            "name": "darnell",
+            "country": "united states",
+            "points": 10000,
+            "quizCount": 2000
+        },
+        {
+            "id": 3,
+            "email": "ucrengineerpy@gmail.com",
+            "password": "testing123",
+            "name": "tj",
+            "country": "united states",
+            "points": 2000,
+            "quizCount": 2000
+        },
+        {
+            "email": "molly.sturgis@navy.mil",
+            "userName": "molly",
+            "password": "test",
+            "confirmedPass": "test",
+            "id": 4
+        }
+    ]
 }

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace question_wiz_api.DAL.Models
 {
-    public class LoginModel
+    public class Answer
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public int id { get; set; }
+        public int questionId { get; set; }
+        public string description { get; set; }
     }
 }

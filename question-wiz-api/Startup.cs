@@ -13,6 +13,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.OpenApi.Models;
+using question_wiz_api.Security.Repositories;
+using question_wiz_api.Security.Interface;
+using question_wiz_api.DAL.Interfaces;
+using question_wiz_api.DAL.Repositories;
+using System.Data;
+using System.Data.SqlClient;
+
 namespace question_wiz_api
 {
     public class Startup
@@ -50,6 +57,12 @@ namespace question_wiz_api
             });
 
             // add repositories here
+            services.AddTransient<ISecurityHelper, SecurityHelper>();
+            services.AddTransient<IUserRepo, UserRepo>();
+            services.AddTransient<IDbConnection>(
+                db => new SqlConnection(Configuration.GetSection("DataConnections").GetSection("ConnectionString").Value)
+             );
+
 
             // add dbconnection here
 
