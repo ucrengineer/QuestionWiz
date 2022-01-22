@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "question-wiz-api", "question-wiz-api.csproj", "{2C86BA67-4EDE-41E8-ADD8-3E4C8DA8C003}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "question-wiz-apiTests", "..\question-wiz-apiTests\question-wiz-apiTests.csproj", "{648EDB09-23DB-49B9-9FAD-E61043D6AF3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "question-wiz-api-tests", "..\question-wiz-api-tests\question-wiz-api-tests.csproj", "{C1377CA4-35A8-42AC-BAF4-4EDDF30BBE1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{2C86BA67-4EDE-41E8-ADD8-3E4C8DA8C003}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C86BA67-4EDE-41E8-ADD8-3E4C8DA8C003}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C86BA67-4EDE-41E8-ADD8-3E4C8DA8C003}.Release|Any CPU.Build.0 = Release|Any CPU
-		{648EDB09-23DB-49B9-9FAD-E61043D6AF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{648EDB09-23DB-49B9-9FAD-E61043D6AF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{648EDB09-23DB-49B9-9FAD-E61043D6AF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{648EDB09-23DB-49B9-9FAD-E61043D6AF3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1377CA4-35A8-42AC-BAF4-4EDDF30BBE1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1377CA4-35A8-42AC-BAF4-4EDDF30BBE1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1377CA4-35A8-42AC-BAF4-4EDDF30BBE1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1377CA4-35A8-42AC-BAF4-4EDDF30BBE1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

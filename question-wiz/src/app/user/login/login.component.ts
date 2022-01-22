@@ -35,13 +35,16 @@ export class LoginComponent implements OnInit {
     // replace with user object
     const credentials = {
       'email': this.loginForm.value.email,
-      'hash_password': this.loginForm.value.password
+      'password': this.loginForm.value.password
     }
 
     this.authService.login(credentials)
     .subscribe(res => {
+      console.log(res)
       const token = (<any>res).token;
+      const email = (<any>res).email;
       localStorage.setItem("jwt",token);
+      localStorage.setItem("email",email);
       this.invalidLogin = false;
       this.show = 'none'
       this.router.navigate(['/homepage']);

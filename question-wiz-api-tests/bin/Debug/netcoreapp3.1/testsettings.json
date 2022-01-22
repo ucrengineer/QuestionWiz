@@ -1,0 +1,3 @@
+{
+  "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=QuizWizDb;Trusted_Connection=True;"
+}

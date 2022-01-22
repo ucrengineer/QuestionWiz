@@ -12,5 +12,7 @@ namespace question_wiz_api.DAL.Interfaces
 
         public string CreateUser(User user);
 
+        public string UpdateUserPoints(User user);
+
     }
 }

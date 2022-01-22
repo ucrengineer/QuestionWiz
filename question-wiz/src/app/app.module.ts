@@ -38,6 +38,7 @@ import { BoardTableComponent } from './leader-board/board-table/board-table.comp
 import { RegistrationComponent } from './user/registration/registration.component';
 import { LoginComponent } from './user/login/login.component';
 import { AuthGuard } from './auth/auth-guard/AuthGuard';
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
 export function tokenGetter(){
   return localStorage.getItem("jwt")
@@ -55,6 +56,7 @@ const appRoutes: Routes= [
   canActivate:[AuthGuard]},
   {path:'register',component: RegistrationComponent},
   {path:'login', component:LoginComponent},
+  {path:'reset-password', component:ResetPasswordComponent},
   {path: '**', component:HomePageComponent,
   canActivate:[AuthGuard]}
 ]
@@ -70,7 +72,8 @@ const appRoutes: Routes= [
     QuizResultComponent,
     BoardTableComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

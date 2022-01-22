@@ -39,11 +39,14 @@
         </div>
     </div>
     <div class="text-center">
-        <a routerLink="/board-table" [state]="{results : value}" routerLinkActive="active" class="card-img-wrapper ">
 
-            <p-button label="Save To Leader Board" icon="pi pi-globe"></p-button>
+        <p-button *ngIf="!saved" (click)="SavePoints()" label="Save To Leader Board" icon="pi pi-globe"> </p-button>
 
+        <a *ngIf="saved" [routerLink]="['/board-table']" routerLinkActive="router-link-active">
+            <p-button label="Go to Leader Board" icon="pi pi-globe"></p-button>
         </a>
+
+
 
 
     </div>

@@ -43,7 +43,7 @@ export class BoardTableComponent implements OnInit {
     })
 
 
-    this.user.points = history.state['results']
+    //this.user.points = history.state['results']
 
 
   }

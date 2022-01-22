@@ -33,7 +33,7 @@ namespace question_wiz_api.Controllers
             // take in user password 
             // add "salt" (random generator)
             user.Salt =  _security.GenerateSalt();
-            user.Hash_Password = _security.ComputeHash(Encoding.UTF8.GetBytes(user.Password), Encoding.UTF8.GetBytes(user.Salt));
+            user.Hashed_Password = _security.ComputeHash(Encoding.UTF8.GetBytes(user.Password), Encoding.UTF8.GetBytes(user.Salt));
             // call hash function 
             // save "salt" and hash to db
             #endregion
@@ -51,9 +51,10 @@ namespace question_wiz_api.Controllers
             // return Ok();
         }
 
-        [HttpPost, Route("update")]
-        public IActionResult Update([FromBody] User user)
+        [HttpPost, Route("updatePoints")]
+        public IActionResult UpdatePoints([FromBody] User user)
         {
+            _userRepo.UpdateUserPoints(user);
             return Ok();
         }
 

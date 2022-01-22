@@ -4,7 +4,7 @@ export interface user{
   userName: string,
   country?: string,
   password: string,
-  hash_password ?: string,
+  hashed_password ?: string,
   salt ?: string,
   points ?: number
 }

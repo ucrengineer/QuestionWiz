@@ -135,6 +135,10 @@ export class QuizFormComponent implements OnInit {
     this.filtered_answers =this.answers.filter(x => x.questionId == this.questions[this.index].id)
   }
 
+  showResults(){
+
+  }
+
 
 
 }

@@ -36,14 +36,15 @@ namespace question_wiz_api.Controllers
             }
             // get user information repo
             var userDb = _userRepo.GetUser(user);
-            user.Hash_Password =_security.ComputeHash(Encoding.UTF8.GetBytes(user.Password), Encoding.UTF8.GetBytes(userDb.Salt));
 
             if (userDb == null)
             {
-                return Unauthorized("User does not exist");
+                return NotFound("User does not exist");
             }
+            user.Hashed_Password = _security.ComputeHash(Encoding.UTF8.GetBytes(user.Password), Encoding.UTF8.GetBytes(userDb.Salt));
+
             // take password + salt => hash vs db_hash
-            if (user.Email == userDb.Email && user.Hash_Password == userDb.Hash_Password)
+            if (user.Email == userDb.Email && user.Hashed_Password == userDb.Hashed_Password)
             {
                 var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("supereSecurityKey@345"));
                 var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -59,7 +60,7 @@ namespace question_wiz_api.Controllers
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
 
-                return Ok(new { Token = tokenString });
+                return Ok(new { Token = tokenString, email = user.Email});
             }
 
             return Unauthorized("User does not Exist");

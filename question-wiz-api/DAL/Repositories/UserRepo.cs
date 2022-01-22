@@ -39,6 +39,7 @@ namespace question_wiz_api.DAL.Repositories
 
             catch(Exception ex)
             {
+
                 throw ex;
             }
 
@@ -53,7 +54,7 @@ namespace question_wiz_api.DAL.Repositories
             var dyParam = new DynamicParameters();
             dyParam.Add("@email", user.Email);
             dyParam.Add("@userName", user.UserName);
-            dyParam.Add("@Hash_Password",user.Hash_Password);
+            dyParam.Add("@Hash_Password",user.Hashed_Password);
             dyParam.Add("@Salt",user.Salt);
 
             #endregion
@@ -80,5 +81,16 @@ namespace question_wiz_api.DAL.Repositories
                 throw ex;
             }
         }
+
+        public string UpdateUserPoints(User user)
+        {
+            if(user.Email != null)
+            {
+                return "success";
+            }
+            return null;
+        }
     }
+
+
 }

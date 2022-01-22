@@ -27,6 +27,13 @@ export class UserService {
     )
   }
 
+  updatePoints(user:user): Observable<any>{
+    return this.http.post<user>(environment.api + 'User/updatePoints', user).pipe(
+      retry(1),
+      catchError(handleError)
+    )
+  }
+
 
 
 

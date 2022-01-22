@@ -12,8 +12,10 @@ export class HomePageComponent implements OnInit {
   constructor(private categoryService: CategoryService) { }
   categories : category[] = [];
   ngOnInit(): void {
-    this.categoryService.get().subscribe(x => this.categories = x)
-    ;
+    this.categoryService.get().subscribe(x => this.categories = x);
+
+    const token = localStorage.getItem("email");
+    alert(token)
   }
 
 }
