@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "category": "object_oriented_programming",
+    "answerId": 1,
+    "description": "What is a class?"
+  },
+  {
+    "id": 2,
+    "category": "object_oriented_programming",
+    "answerId": 5,
+    "description": "Which of these is NOT a object oriented concept?"
+  },
+  {
+    "id": 3,
+    "category": "object_oriented_programming",
+    "answerId": 9,
+    "description": "An object is defined by what two(2) components?"
+  },
+  {
+    "id": 4,
+    "category": "object_oriented_programming",
+    "answerId": 13,
+    "description": "Inheritance represents what type of relationship?"
+  },
+  {
+    "id": 5,
+    "category": "object_oriented_programming",
+    "answerId": 19,
+    "description": "What is encapsulation?"
+  }
+]

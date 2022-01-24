@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using question_wiz_api.DAL.Interfaces;
 using question_wiz_api.DAL.models;
+using question_wiz_api.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,22 +15,19 @@ namespace question_wiz_api.Controllers
     [ApiController]
     public class QuizController : ControllerBase
     {
-        [HttpGet]
-    //    [Authorize]
-        public Quiz Get()
+        private readonly IQuizRepo _quizRepo;
+
+        public QuizController(IQuizRepo quizRepo)
         {
-  
+            _quizRepo = quizRepo;
+        }
 
-
-
-
-            return new Quiz
-            {
-                Answers =null,
-
-                Questions = null
-
-            };
+        [HttpGet("{category}")]
+        public IActionResult Get(string category)
+        {
+            var quiz = _quizRepo.GetQuiz(category);
+            return new JsonResult(quiz);
+ 
 
         }
           

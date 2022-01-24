@@ -59,6 +59,7 @@ namespace question_wiz_api
             // add repositories here
             services.AddTransient<ISecurityHelper, SecurityHelper>();
             services.AddTransient<IUserRepo, UserRepo>();
+            services.AddTransient<IQuizRepo, QuizRepo>();
             services.AddTransient<IDbConnection>(
                 db => new SqlConnection(Configuration.GetSection("DataConnections").GetSection("ConnectionString").Value)
              );

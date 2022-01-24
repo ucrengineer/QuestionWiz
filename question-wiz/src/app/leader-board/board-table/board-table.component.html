@@ -1,10 +1,10 @@
 <div style="padding:20px">
 
     <p-table #dt [value]="users" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
-        [filterDelay]="0" [globalFilterFields]="['name','country','points','quizCount']">
+        [filterDelay]="0" [globalFilterFields]="['userName','country','points','quizCount']">
         <ng-template pTemplate="caption">
             <div class="table-header">
-                List of QuizWiz's
+                QuizWiz Champions
                 <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
                 <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Global Search" />
@@ -14,10 +14,10 @@
         <ng-template pTemplate="header">
             <tr>
 
-                <th pSortableColumn="name">
+                <th pSortableColumn="userName">
                     <div class="p-d-flex p-jc-between p-ai-center">
                         Name
-                        <p-sortIcon field="name"></p-sortIcon>
+                        <p-sortIcon field="userName"></p-sortIcon>
                         <p-columnFilter type="text" field="name" display="menu" class="p-ml-auto"></p-columnFilter>
                     </div>
                 </th>
@@ -51,7 +51,7 @@
             <tr class="p-selectable-row">
 
                 <td>
-                    <span class="p-column-title">Name</span> {{user.name}}
+                    <span class="p-column-title">Name</span> {{user.userName}}
 
                 </td>
                 <td>

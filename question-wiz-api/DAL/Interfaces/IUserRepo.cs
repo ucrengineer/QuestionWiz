@@ -10,9 +10,11 @@ namespace question_wiz_api.DAL.Interfaces
     {
         public User GetUser(User user);
 
-        public string CreateUser(User user);
+        public void CreateUser(User user);
 
-        public string UpdateUserPoints(User user);
+        public void UpdateUserPoints(User user);
+
+        public IEnumerable<User> GetAllUsers();
 
     }
 }

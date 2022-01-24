@@ -29,21 +29,36 @@ export class QuizFormComponent implements OnInit {
   points : {} = {};
   loading : boolean = true;
   finished : boolean = false;
+  none : boolean = false;
 
   ngOnInit(): void {
 
-   // this.quizService.get().subscribe(x =>this.quiz );
-    this.questionService.get().subscribe(x => {
+   this.quizService.get(this.route.snapshot.params['id']).subscribe(quiz => {
+     this.questions = quiz.questions;
+     this.answers = quiz.answers;
+   },
+   (error:any) => {alert(error.client_side)},
+   () =>
+   {
+    this.filterAnswers();
+    this.loading = false
+    if(this.questions.length < 1){
+      this.none = true;
+    }
+  });
 
-      this.questions = x.filter(x => x.category == this.route.snapshot.params['id'])
-    })
-    this.answerService.get().subscribe(x => {
-      this.answers = x;
-      if(this.answers.length > 0 && this.questions.length > 0){
-        this.filterAnswers();
-        this.loading = false;
-      }
-    })
+
+    // this.questionService.get().subscribe(x => {
+
+    //   this.questions = x.filter(x => x.category == this.route.snapshot.params['id'])
+    // })
+    // this.answerService.get().subscribe(x => {
+    //   this.answers = x;
+    //   if(this.answers.length > 0 && this.questions.length > 0){
+    //     this.filterAnswers();
+    //     this.loading = false;
+    //   }
+    // })
 
 
   }

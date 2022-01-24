@@ -61,7 +61,7 @@ namespace question_wiz_api_tests
         }
 
         [Fact]
-        public void CreateUser_ShouldReturnErrorString()
+        public void CreateUser_ShouldReturnExecption()
         {
             //Arrange
                 // this user is already in the db, so an error message will be returned
@@ -74,39 +74,58 @@ namespace question_wiz_api_tests
             };
 
             //Act 
-            var result = _userRepo.CreateUser(User);
+            Action act = () => _userRepo.CreateUser(User);
+            //assert
+            Assert.Throws<Exception>(act);
 
-            //Assert
-            Assert.IsType<string>(result);
         }
 
+        //[Fact]
+        //public void CreateUser_ShouldReturnNull()
+        //{
+
+
+
+        //    //Arrange
+        //    // create random string
+        //    var bytes = new byte[128 / 8];
+        //    var rng = new RNGCryptoServiceProvider();
+        //    rng.GetBytes(bytes);
+
+        //    var User = new User
+        //    {
+        //        Email = Convert.ToBase64String(bytes),
+        //        UserName = Convert.ToBase64String(bytes),
+        //        Hashed_Password = Convert.ToBase64String(bytes),
+        //        Salt = Convert.ToBase64String(bytes)
+        //    };
+
+        //    //Act 
+        //    var exception = Record.Exception(() => _userRepo.CreateUser(User));
+
+        //    //Assert
+        //    Assert.Null(exception);
+                            
+        
+
+        //}
+
         [Fact]
-        public void CreateUser_ShouldReturnNull()
+        public void UpdatePoints_ShouldReturnNull()
         {
-
-
-
-            //Arrange
-            // create random string
-            var bytes = new byte[128 / 8];
-            var rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(bytes);
-
-            var User = new User
+            // Arrange
+            var user = new User
             {
-                Email = Convert.ToBase64String(bytes),
-                UserName = Convert.ToBase64String(bytes),
-                Hashed_Password = Convert.ToBase64String(bytes),
-                Salt = Convert.ToBase64String(bytes)
+                Email = "TEST",
+                Points = 10
             };
+            // Act
 
             //Act 
-            var result = _userRepo.CreateUser(User);
+            var exception = Record.Exception(() => _userRepo.UpdateUserPoints(user));
 
-            //Assert 
-            Assert.Null(result);
-                 
-        
+            //Assert
+            Assert.Null(exception);
 
         }
 

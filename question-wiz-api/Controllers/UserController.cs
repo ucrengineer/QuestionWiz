@@ -40,13 +40,9 @@ namespace question_wiz_api.Controllers
 
             #region user class repo
             // submit user info to database
-            var result  = _userRepo.CreateUser(user);
+            _userRepo.CreateUser(user);
             #endregion
-            if(result != null)
-            {
-                return BadRequest(result);
 
-            }
             return Ok();
             // return Ok();
         }
@@ -54,7 +50,8 @@ namespace question_wiz_api.Controllers
         [HttpPost, Route("updatePoints")]
         public IActionResult UpdatePoints([FromBody] User user)
         {
-            _userRepo.UpdateUserPoints(user);
+             _userRepo.UpdateUserPoints(user);
+
             return Ok();
         }
 
@@ -62,6 +59,13 @@ namespace question_wiz_api.Controllers
         public IActionResult Delete([FromBody] User user)
         {
             return Ok();
+        }
+
+        [HttpGet, Route("GetAllUsers")]
+        public IActionResult GetAllUsers()
+        {
+            var Users = _userRepo.GetAllUsers();
+            return new JsonResult(Users);
         }
     }
 }

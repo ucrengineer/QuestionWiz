@@ -56,5 +56,6 @@ export class LoginComponent implements OnInit {
 
   logOut(){
     localStorage.removeItem("jwt");
+
   }
 }

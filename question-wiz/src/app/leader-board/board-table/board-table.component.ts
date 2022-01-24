@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { user } from 'src/app/models/user.model';
 import { CountriesService } from 'src/app/services/countries/countries.service';
 import { UserService } from 'src/app/services/users/user.service';
 
@@ -21,7 +22,7 @@ export class BoardTableComponent implements OnInit {
 
   isOpen = true;
   userName: string= null;
-  users : any[] = [];
+  users : user[] = [];
   user: any = null;
   loading : boolean = true;
 

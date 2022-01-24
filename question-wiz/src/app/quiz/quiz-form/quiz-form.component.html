@@ -1,8 +1,10 @@
-<div id="quiz" *ngIf="!loading; else elseBlock">
+<div id="quiz" *ngIf="!loading && !none; else elseBlock">
     <!-- <h2>
         <p-badge value={{totalScore}} size="xlarge" severity="success" styleClass="p-mr-2">Time Countdown</p-badge>
 
     </h2> -->
+
+
 
     <div>
         <div class="card  bg-light ">
@@ -54,8 +56,12 @@
 
 
     <div class="text-center" style="margin-top:20%">
-        <p-progressSpinner></p-progressSpinner>
-
+        <p-progressSpinner *ngIf="!none"></p-progressSpinner>
+        <div *ngIf="none">
+            <h2>
+                No Questions Available
+            </h2>
+        </div>
     </div>
 
 </ng-template>

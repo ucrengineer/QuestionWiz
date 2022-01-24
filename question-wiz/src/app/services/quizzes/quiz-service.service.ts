@@ -14,8 +14,8 @@ export class QuizService{
   constructor(private http:HttpClient) { }
 
 
-  get(): Observable<quiz>{
-    return this.http.get<quiz>(environment.api + 'quiz').pipe(
+  get(category): Observable<quiz>{
+    return this.http.get<quiz>(environment.api + 'quiz/'+category).pipe(
       retry(1),
       catchError(handleError)
     )

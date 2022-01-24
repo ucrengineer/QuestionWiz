@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   get():Observable<user[]>{
-    return this.http.get<user[]>(environment.mocApi + 'user').pipe(
+    return this.http.get<user[]>(environment.api + 'User/GetAllUsers').pipe(
       retry(1),
       catchError(handleError),
 

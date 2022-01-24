@@ -9,6 +9,9 @@ namespace question_wiz_api.DAL
     {
         public static string GetUser = "sp_GetUser";
         public static string CreateUser = "sp_CreateUser";
+        public static string UpdatePoints = "sp_UpdatePoints";
+        public static string GetAllUsers = "sp_GetAllUsers";
+        public static string GetQuiz = "sp_GetQuiz";
 
     }
 }

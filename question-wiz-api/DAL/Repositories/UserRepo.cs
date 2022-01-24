@@ -32,7 +32,7 @@ namespace question_wiz_api.DAL.Repositories
                 using (_connection)
                 {
                     var result = SqlMapper.Query<User>(_connection, procName,param:dyParam, commandType: CommandType.StoredProcedure);
-
+ 
                     return result.FirstOrDefault();
                 }
             }
@@ -43,10 +43,9 @@ namespace question_wiz_api.DAL.Repositories
                 throw ex;
             }
 
-            // call stored procedure to get user with param of email
         }
 
-        public string CreateUser(User user)
+        public void CreateUser(User user)
         {
             string procName = Constants.CreateUser;
 
@@ -63,16 +62,14 @@ namespace question_wiz_api.DAL.Repositories
                 using (_connection)
                 {
                     var result = SqlMapper.Query(_connection, procName, param: dyParam, commandType: CommandType.StoredProcedure);
-                    // cant get error message!!!
                     if (result.Any())
                     {
                         var ErrorMessage = (IDictionary<string, object>)result.FirstOrDefault();
                         var Error = ErrorMessage["ErrorMessage"];
-                        return Error.ToString();
+                        throw (new Exception(Error.ToString()));
+                      //  return Error.ToString();
                     }
 
-                    return null;
-                   // return result;
                 }
             }
 
@@ -82,13 +79,65 @@ namespace question_wiz_api.DAL.Repositories
             }
         }
 
-        public string UpdateUserPoints(User user)
+        public void UpdateUserPoints(User user)
         {
-            if(user.Email != null)
+            string procName = Constants.UpdatePoints;
+
+            #region params
+            var dyParam = new DynamicParameters();
+            dyParam.Add("@email", user.Email);
+            dyParam.Add("@points", user.Points);
+
+
+            #endregion
+            try
             {
-                return "success";
+                using (_connection)
+                {
+                    var result = SqlMapper.Query(_connection, procName, param: dyParam, commandType: CommandType.StoredProcedure);
+                    // cant get error message!!!
+                    if (result.Any())
+                    {
+                        var ErrorMessage = (IDictionary<string, object>)result.FirstOrDefault();
+                        var Error = ErrorMessage["ErrorMessage"];
+                        throw (new Exception(Error.ToString()));
+                       // return Error.ToString();
+                    }
+
+                    // return result;
+                }
             }
-            return null;
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public IEnumerable<User> GetAllUsers()
+        {
+            string procName = Constants.GetAllUsers;
+
+            #region params
+            var dyParam = new DynamicParameters();
+
+
+            #endregion
+            try
+            {
+                using (_connection)
+                {
+                    var result = SqlMapper.Query<User>(_connection, procName, param: dyParam, commandType: CommandType.StoredProcedure);
+
+
+                    return result ;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 
