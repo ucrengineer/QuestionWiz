@@ -43,12 +43,24 @@
                      <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.confirmedPass.hasError('matching')">Password and Confirm Password must be match.</mat-error>
              </div>
             </mat-form-field>  -->
+            <p-listbox formControlName="country" [options]="countries" [(ngModel)]="selectedCountry" [metaKeySelection]="false" [checkbox]="true" [filter]="true" optionLabel="name" optionValue="code" [listStyle]="{'max-height':'250px'}" [style]="{'width':'15rem'}">
+                <ng-template let-country pTemplate="item">
+                    <div class="country-item">
+                        <span class="flag-icon flag-icon-{{country.code | lowercase}} flag-icon-squared"></span> {{country.name}}
+                    </div>
+                </ng-template>
+            </p-listbox>
+
+            <div>
+                <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.country.touched && !loginForm.controls.country.errors?.required">Please select a country </mat-error>
+
+            </div>
+
 
 
             <button type="submit">Register</button>
 
         </div>
-
 
         <div class="container" style="background-color:#f1f1f1">
             <div class="row">

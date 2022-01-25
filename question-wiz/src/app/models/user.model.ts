@@ -6,5 +6,6 @@ export interface user{
   password: string,
   hashed_password ?: string,
   salt ?: string,
-  points ?: number
+  points ?: number,
+  quizCount ?: number
 }

@@ -11,12 +11,11 @@
             <li class="nav-item" [ngClass]="active ? '' : 'active'">
                 <a (click)="active = !active" class="nav-link" routerLink="/board-table">Leader Board</a>
             </li>
-            <li class="nav-item">
-                <a (click)="logOut()" class="nav-link" routerLink="/login">Log Out</a>
-            </li>
-
-
-
         </ul>
+
     </div>
+    <span class="navbar-text">
+      <a (click)="logOut()" class="nav-link" routerLink="/login" class="pi pi-sign-out"></a>
+  </span>
+
 </nav>

@@ -25,9 +25,7 @@ export class RegistrationComponent implements OnInit {
     email: new FormControl('', [Validators.required,Validators.email]),
     userName: new FormControl('',Validators.required),
     password: new FormControl('', [Validators.required,]),
-    // confirmedPass: new FormControl('',[Validators.required,Validators.pattern('')]),
-   // country : new FormControl('',Validators.required)
-
+    country : new FormControl('',Validators.required)
 
 
 
@@ -39,10 +37,7 @@ export class RegistrationComponent implements OnInit {
   constructor(private countryService: CountriesService,private userService:UserService, private router : Router) { }
 
   ngOnInit() {
-    this.countryService.get().subscribe(x => {
-      this.countries = x}
-
-      )
+    this.countryService.get().then(x => this.countries = x).catch()
   }
   filterCountry(event) {
     //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side
@@ -64,19 +59,13 @@ export class RegistrationComponent implements OnInit {
         (data) => {},
         (error:any) => {this.loginError = error.client_side},
       () => this.router.navigate(['/login']));
-
-    //   this.userService.login(this.loginForm.value)
-    //   .subscribe((data) => {
-    // console.log(data);
-    //     if(data.status === 200 && !data.body.ErrorCode){
-    //       this.router.navigate(['/homepage']);
-    //     }else{
-    //       this.loginError = data.body.message;
-    //     }
-    //   },
-    //   error => this.loginError = error
-    //   )
     }
+  }
+  // Choose city using select dropdown
+  changeCountry(e) {
+    this.selectedCountry.setValue(e.target.value, {
+      onlySelf: true
+    })
   }
 
 

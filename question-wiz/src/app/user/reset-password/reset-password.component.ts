@@ -37,10 +37,10 @@ export class ResetPasswordComponent implements OnInit {
   constructor(private countryService: CountriesService,private userService:UserService, private router : Router) { }
 
   ngOnInit() {
-    this.countryService.get().subscribe(x => {
-      this.countries = x}
+    // this.countryService.get().subscribe(x => {
+    //   this.countries = x}
 
-      )
+    //   )
   }
   filterCountry(event) {
     //in a real application, make a request to a remote url with the query and return filtered results, for demo we filter at client side

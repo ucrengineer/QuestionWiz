@@ -14,5 +14,6 @@ namespace question_wiz_api.DAL.Models
         public string Salt { get; set; }
         public string Country { get; set; }
         public int Points { get; set; }
+        public int QuizCount { get; set; }
     }
 }

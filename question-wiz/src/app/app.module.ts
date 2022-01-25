@@ -33,7 +33,6 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import {TableModule} from 'primeng/table';
 
-
 import { BoardTableComponent } from './leader-board/board-table/board-table.component';
 import { RegistrationComponent } from './user/registration/registration.component';
 import { LoginComponent } from './user/login/login.component';

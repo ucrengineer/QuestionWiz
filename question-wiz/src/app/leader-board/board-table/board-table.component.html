@@ -47,6 +47,7 @@
 
             </tr>
         </ng-template>
+
         <ng-template pTemplate="body" let-user>
             <tr class="p-selectable-row">
 
@@ -55,7 +56,8 @@
 
                 </td>
                 <td>
-                    <span class="p-column-title">Country</span> {{user.country}}
+                    <span class="p-column-title">Country</span>
+                    <span class="flag-icon flag-icon-{{user.country | lowercase}} flag-icon-squared"></span>
                 </td>
 
 
@@ -70,12 +72,15 @@
 
             </tr>
         </ng-template>
+
         <ng-template pTemplate="emptymessage">
             <tr>
                 <td colspan="8">No users found.</td>
             </tr>
         </ng-template>
     </p-table>
+
+
 
 
 

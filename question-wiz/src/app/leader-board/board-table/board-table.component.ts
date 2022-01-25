@@ -33,10 +33,10 @@ export class BoardTableComponent implements OnInit {
 
 
 
-    this.countryService.get().subscribe(x => {
-      this.countries = x}
+    // this.countryService.get().subscribe(x => {
+    //   this.countries = x}
 
-      )
+    //   )
 
     this.userService.get().subscribe(x => {
       this.users = x

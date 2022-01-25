@@ -55,6 +55,7 @@ namespace question_wiz_api.DAL.Repositories
             dyParam.Add("@userName", user.UserName);
             dyParam.Add("@Hash_Password",user.Hashed_Password);
             dyParam.Add("@Salt",user.Salt);
+            dyParam.Add("@country", user.Country);
 
             #endregion
             try
@@ -87,6 +88,7 @@ namespace question_wiz_api.DAL.Repositories
             var dyParam = new DynamicParameters();
             dyParam.Add("@email", user.Email);
             dyParam.Add("@points", user.Points);
+            dyParam.Add("@quizCount", user.QuizCount);
 
 
             #endregion
