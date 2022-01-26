@@ -1,13 +1,14 @@
 # QuestionWiz
 
-The motivation behind this project was to help me prepare for software engineering job interviews while also keeping my skills fresh & doing something fun. This project was built to help me study and learn, creating my own application & quizzes..This application will help the user study in a fun and interactive manner.During this project I learned alot about the user authentication process, JWT, HTTP codes, and browswer caching.
+The motivation behind this project was to help me prepare for software engineering job interviews while also keeping my skills fresh & doing something fun. This project was built to help me study and learn, creating my own application & quizzes..This application will help the user study in a fun and interactive manner.During this project I learned alot about the user authentication process, JWT, HTTP codes, and browser caching. Some of the challenges was creating a uniform error handling system and also writing efficient unit tests.
 
 ## Project Description
-User will be prompted to either sign in or log in. User can then choose a category to get quizzed in.. 20 questions will be chosen randomly and displayed. After the user has completed the quiz, the results/score and correct answers will be shown. Then the user will save their results and go to the leader board to see where they stand against other Quiz Wiz Champions.
+User will be prompted to either sign in or log in. User can then choose a category to get quizzed in.. 20 questions will be chosen randomly and displayed. After the user has completed the quiz, the results/score and correct answers will be shown. Then the user will save their results and go to the leader board to see where they stand against other Quiz Wiz Champions. 
 
 ## Stack
 - Angular 11
 - ASP.NET CORE 3.1 
+- Swagger
 - Dapper
 - Sql Server
 
