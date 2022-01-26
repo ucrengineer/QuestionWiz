@@ -20,7 +20,7 @@
                 </div>
             </mat-form-field>
             <mat-form-field>
-                <label for="uname"><b>UserName</b></label>
+                <label for="uname"><b>Username</b></label>
                 <input matInput type="text" formControlName="userName" name="uname" required>
                 <div>
                     <mat-error class="text-center alert alert-danger" *ngIf="loginForm.controls.userName.touched && !loginForm.controls.userName.valid">Please enter user name [10 char max] </mat-error>

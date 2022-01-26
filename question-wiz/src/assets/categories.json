@@ -5,18 +5,6 @@
         "desc": "Object Oriented Programming Theory"
     },
     {
-        "id": "life_insurance",
-        "name": "Life Insurance",
-        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
-        "desc": "Life Insurance State Certification Concepts"
-    },
-    {
-        "id": "art_history",
-        "name": "Art History",
-        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
-        "desc": "European, African & American Art"
-    },
-    {
         "id": "net_core",
         "name": ".NET Core",
         "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
@@ -33,6 +21,12 @@
         "name": "Git",
         "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
         "desc": "Version control, Command lines, Dev ops"
+    },
+    {
+        "id": "test_driven_development",
+        "name": "TDD",
+        "logo_file": "https://storage.googleapis.com/pathrise-app/job_sources/google.png",
+        "desc": "Test Driven Development"
     }
 
 ]

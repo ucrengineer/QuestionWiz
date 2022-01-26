@@ -1,10 +1,15 @@
 <div style="padding:20px">
 
-    <p-table #dt [value]="users" dataKey="id" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    <p-table #dt [value]="users" dataKey="id" sortField="points" [sortOrder]="-1" styleClass="p-datatable-customers" [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
         [filterDelay]="0" [globalFilterFields]="['userName','country','points','quizCount']">
         <ng-template pTemplate="caption">
             <div class="table-header">
-                QuizWiz Champions
+                <div>
+
+                </div>
+                <span class="pl-8">
+                  QuizWiz Champions
+                </span>
                 <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
                 <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Global Search" />

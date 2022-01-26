@@ -27,7 +27,6 @@ export class QuizResultComponent implements OnInit {
   }
 
   SavePoints(){
-    alert(this.value)
     if(this.value!= undefined){
       var user : user  = {
         email : localStorage.getItem("email"),

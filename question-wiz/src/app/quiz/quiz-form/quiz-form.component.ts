@@ -47,20 +47,6 @@ export class QuizFormComponent implements OnInit {
     }
   });
 
-
-    // this.questionService.get().subscribe(x => {
-
-    //   this.questions = x.filter(x => x.category == this.route.snapshot.params['id'])
-    // })
-    // this.answerService.get().subscribe(x => {
-    //   this.answers = x;
-    //   if(this.answers.length > 0 && this.questions.length > 0){
-    //     this.filterAnswers();
-    //     this.loading = false;
-    //   }
-    // })
-
-
   }
 
 
